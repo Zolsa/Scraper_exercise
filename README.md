@@ -1,1 +1,1 @@
-# Scraper_exercise
+# mongodb-news

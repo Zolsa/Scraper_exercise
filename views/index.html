@@ -1,0 +1,43 @@
+<link rel="stylesheet" type="text/css" href="assets/css/index.css">
+
+<div class="container">
+
+	{{#each article}}
+	<div class="card">
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-8">
+					<h4 class="card-title">{{title}}</h4>
+					<h6 class="card-subtitle mb-2 text-muted">Last scraped on: {{date}}</h6>
+					<p class="card-text">{{info}}</p>
+					<a href={{link}} class="btn btn-primary" target="_blank">Read more!</a>
+				</div>
+				<div class="col-md-4">
+					<img src="{{img}}" style="width:100%"/>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer text-center">
+			<h5>Comments</h5>
+		</div>
+		{{#each comment}}
+		<div class="card-footer">
+    		{{message}}
+    		<button type="button" class="btn btn-danger float-right delete" id="{{_id}}">Delete</button>
+    		<div id="sentiment" class="float-right" data-toggle="popover" data-content="How positive or negative a comment is.  Obtained by sentiment - npm">sentiment: {{sentiment}}</div>
+  		</div>
+  		{{/each}}
+ 		<div class="card-footer">
+		    <div class="input-group">
+			    <input type="text" class="form-control" placeholder="What are you thinking?" aria-label="What are you thinking?" id="comment">
+			    <span class="input-group-btn">
+			    	<button class="btn btn-success add" type="button" id="{{_id}}">Add Comment!</button>
+			    </span>
+		    </div>
+		</div>
+  	</div>
+	{{/each}}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript" src="assets/scripts/index.js"></script>
